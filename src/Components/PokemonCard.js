@@ -1,9 +1,10 @@
 import React from 'react'
 
-const PokemonCard = () => {
+const PokemonCard = props => {
+
   return (
     <div>
-
+      {props.pokemon.name}
     </div>
   )
 }
