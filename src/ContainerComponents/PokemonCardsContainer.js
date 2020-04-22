@@ -9,7 +9,7 @@ const PokemonCardsContainer = () => {
     fetch('http://localhost:3000/pokemons')
     .then(resp => resp.json())
     .then(data => setAllPokemon(data))
-  })
+  }, [])
 
   return (
     <div>
