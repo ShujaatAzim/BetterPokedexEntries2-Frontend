@@ -9,7 +9,7 @@ ReactDOM.render(
   <Router>
     <React.StrictMode>
       <Route exact path="/login" component={LoginPage} />
-      <Route exact path="/home" component={App} /> 
+      <Route exact path="/home" component={App} />
     </React.StrictMode>
   </Router>,
   document.getElementById('root')
