@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import PokemonCard from '../Components/PokemonCard'
+import '../Styles/App.css'
 
 const PokemonCardsContainer = () => {
   
@@ -12,7 +13,7 @@ const PokemonCardsContainer = () => {
   }, [])
 
   return (
-    <div>
+    <div className="app">
       {allPokemon.map(pokemon => {
         return <PokemonCard pokemon={pokemon} />
       })}
