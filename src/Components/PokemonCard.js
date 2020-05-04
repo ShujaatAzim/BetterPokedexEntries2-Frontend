@@ -24,6 +24,7 @@ const PokemonCard = props => {
           </Card.Text>
         </Card.Body>
     </Card>
+    
   )
 }
 
