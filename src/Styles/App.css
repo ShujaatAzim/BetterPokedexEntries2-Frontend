@@ -2,3 +2,13 @@
   margin-left: 2rem;
   margin-right: 2rem;
 }
+
+.login {
+  float: left;
+  width: 45%
+}
+
+.register {
+  float: right;
+  width: 45%
+}
