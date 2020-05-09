@@ -12,6 +12,7 @@ ReactDOM.render(
       <Route exact path="/login" component={LoginPage} />
       <Route exact path="/home" component={App} />
       <Route exact path="/pokemon" component={PokemonPage} />
+      <Route exact path="/pokemon/:name" render={(props) => <PokemonInfoPage {...props} />} /> 
     </React.StrictMode>
   </Router>,
   document.getElementById('root')
