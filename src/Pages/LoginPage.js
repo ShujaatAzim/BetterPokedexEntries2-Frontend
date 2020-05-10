@@ -1,10 +1,39 @@
-import React from 'react'
+import React, { useState } from 'react'
 import NavBar from '../Components/NavBar'
 import Jumbo from '../Components/Jumbo'
 import { Form, Button } from 'react-bootstrap'
 import '../Styles/App.css'
 
 const LoginPage = () => {
+
+  const [loginEmail, setLoginEmail] = useState("")
+  const [loginPassword, setLoginPassword] = useState("")
+  const [registerEmail, setRegisterEmail] = useState("")
+  const [registerPassword, setRegisterPassword] = useState("")
+  const [registerPasswordConfirm, setRegisterPasswordConfirm] = useState("")
+
+  const handleLoginSubmit = e => {
+    e.preventDefault()
+    console.log({
+      email: loginEmail,
+      password: loginPassword
+    })
+    setLoginEmail("")
+    setLoginPassword("")
+  }
+
+  const handleRegisterSubmit = e => {
+    e.preventDefault()
+    console.log({
+      email: registerEmail,
+      password: registerPassword,
+      passwordConfirm: registerPasswordConfirm
+    })
+    setRegisterEmail("")
+    setRegisterPassword("")
+    setRegisterPasswordConfirm("")
+  }
+ 
   return (
     <div>
       <NavBar />
@@ -12,17 +41,17 @@ const LoginPage = () => {
       <div className="app">
         <div className="login">
           <h3>Login!</h3>
-          <Form>
-            <Form.Group controlId="formBasicEmail">
+          <Form onSubmit={handleLoginSubmit}>
+            <Form.Group controlId="loginEmail">
               <Form.Label>Email address</Form.Label>
-              <Form.Control type="email" placeholder="Enter email" />
+              <Form.Control type="email" placeholder="Enter email" value={loginEmail} onChange={(e) => setLoginEmail(e.target.value)}/>
               <Form.Text className="text-muted">
                 We'll never share your email with anyone else.
               </Form.Text>
             </Form.Group>
-            <Form.Group controlId="formBasicPassword">
+            <Form.Group controlId="loginPassword">
               <Form.Label>Password</Form.Label>
-              <Form.Control type="password" placeholder="Password" />
+              <Form.Control type="password" placeholder="Password" value={loginPassword} onChange={(e) => setLoginPassword(e.target.value)} />
             </Form.Group>
             <Button variant="primary" type="submit">
               Submit
@@ -30,18 +59,22 @@ const LoginPage = () => {
           </Form>
         </div>
         <div className="register">
-          <h3>Or register!</h3>
-          <Form>
-            <Form.Group controlId="formBasicEmail">
+          <h3>Or Register!</h3>
+          <Form onSubmit={handleRegisterSubmit}>
+            <Form.Group controlId="registerEmail">
               <Form.Label>Email address</Form.Label>
-              <Form.Control type="email" placeholder="Enter email" />
+              <Form.Control type="email" placeholder="Enter email" value={registerEmail} onChange={(e) => setRegisterEmail(e.target.value)} />
               <Form.Text className="text-muted">
                 We'll never share your email with anyone else.
               </Form.Text>
             </Form.Group>
-            <Form.Group controlId="formBasicPassword">
+            <Form.Group controlId="registerPassword">
               <Form.Label>Password</Form.Label>
-              <Form.Control type="password" placeholder="Password" />
+              <Form.Control type="password" placeholder="Password" value={registerPassword} onChange={(e) => setRegisterPassword(e.target.value)} />
+            </Form.Group>
+            <Form.Group controlId="registerPasswordConfirm">
+              <Form.Label>Password Confirm</Form.Label>
+              <Form.Control type="password" placeholder="Confirm Password" value={registerPasswordConfirm} onChange={(e) => setRegisterPasswordConfirm(e.target.value)} />
             </Form.Group>
             <Button variant="primary" type="submit">
               Submit

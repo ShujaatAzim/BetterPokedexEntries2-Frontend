@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom'
 import App from './App'
 import LoginPage from './Pages/LoginPage'
 import PokemonPage from './Pages/PokemonPage'
+import PokemonInfoPage from './Pages/PokemonInfoPage'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.min.css';
 
