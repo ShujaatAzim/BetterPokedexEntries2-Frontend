@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import axios from 'axios'
 import NavBar from '../Components/NavBar'
 import Jumbo from '../Components/Jumbo'
 import { Form, Button } from 'react-bootstrap'
@@ -12,7 +13,7 @@ const LoginPage = () => {
   const [registerPassword, setRegisterPassword] = useState("")
   const [registerPasswordConfirm, setRegisterPasswordConfirm] = useState("")
 
-  const handleLoginSubmit = e => {
+  const handleLoginSubmit = e => { 
     e.preventDefault()
     console.log({
       email: loginEmail,
@@ -24,10 +25,18 @@ const LoginPage = () => {
 
   const handleRegisterSubmit = e => {
     e.preventDefault()
-    console.log({
-      email: registerEmail,
-      password: registerPassword,
-      passwordConfirm: registerPasswordConfirm
+    axios.post('http://localhost:3000/registrations', {
+      user: {
+        email: registerEmail,
+        password: registerPassword,
+        password_confirmation: registerPasswordConfirm 
+      }
+    },
+      // { withCredentials: true }
+    ).then(response => {
+      console.log("registered!", response)
+    }).catch(error => {
+      console.log("error!", error)
     })
     setRegisterEmail("")
     setRegisterPassword("")
