@@ -5,13 +5,18 @@ import Jumbo from '../Components/Jumbo'
 import { Form, Button } from 'react-bootstrap'
 import '../Styles/App.css'
 
-const LoginPage = () => {
+const LoginPage = props => {
 
   const [loginEmail, setLoginEmail] = useState("")
   const [loginPassword, setLoginPassword] = useState("")
   const [registerEmail, setRegisterEmail] = useState("")
   const [registerPassword, setRegisterPassword] = useState("")
   const [registerPasswordConfirm, setRegisterPasswordConfirm] = useState("")
+  const [registrationErrors, setRegistrationErrors] = useState("")
+
+  const handleSuccessfulAuth = data => {
+    props.history.push("/home")
+  }
 
   const handleLoginSubmit = e => { 
     e.preventDefault()
@@ -34,7 +39,13 @@ const LoginPage = () => {
     },
       // { withCredentials: true }
     ).then(response => {
-      console.log("registered!", response)
+      console.log(response)
+      if (response.data.status === 'created') {
+        handleSuccessfulAuth(response.data)
+      } else {
+        // props.handleAuthError(response.data)
+        console.log('error registering')
+      }
     }).catch(error => {
       console.log("error!", error)
     })
@@ -46,7 +57,6 @@ const LoginPage = () => {
   return (
     <div>
       <NavBar />
-      <Jumbo />
       <div className="app">
         <div className="login">
           <h3>Login!</h3>

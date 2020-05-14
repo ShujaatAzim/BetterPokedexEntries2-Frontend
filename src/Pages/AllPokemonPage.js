@@ -3,7 +3,7 @@ import NavBar from '../Components/NavBar'
 import Jumbo from '../Components/Jumbo'
 import PokemonCardsContainer from '../ContainerComponents/PokemonCardsContainer'
 
-const PokemonPage = () => {
+const AllPokemonPage = () => {
   return (
     <div>
       <NavBar />
@@ -14,4 +14,4 @@ const PokemonPage = () => {
   )
 }
 
-export default PokemonPage
+export default AllPokemonPage
