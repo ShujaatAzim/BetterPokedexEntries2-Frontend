@@ -47,7 +47,8 @@ const LoginPage = props => {
         console.log('error registering')
       }
     }).catch(error => {
-      console.log("error!", error)
+      setRegistrationErrors(error)
+      console.log(error)
     })
     setRegisterEmail("")
     setRegisterPassword("")
