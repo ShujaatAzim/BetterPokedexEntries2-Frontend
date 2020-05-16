@@ -20,9 +20,15 @@ const LoginPage = props => {
 
   const handleLoginSubmit = e => { 
     e.preventDefault()
-    console.log({
-      email: loginEmail,
-      password: loginPassword
+    axios.post('http://localhost:3000/users', {
+      user: {
+        email: loginEmail,
+        password: loginPassword
+      }
+    }, 
+    // { withCredentials: true }
+    ).then(response => {
+      console.log(response)
     })
     setLoginEmail("")
     setLoginPassword("")
