@@ -10,10 +10,14 @@ const App = () => {
   const [loggedInStatus, setLoggedInStatus] = useState("NOT_LOGGED_IN")
   const [user, setUser] = useState({})
 
+  const handleLogin = () => (
+    setLoggedInStatus("LOGGED_IN")
+  )
+
   return (
     <div>
       <Router>
-        <Route exact path="/login" render={props => <LoginPage {...props} />} />
+        <Route exact path="/login" render={props => <LoginPage {...props} handleLogin={handleLogin} loggedInStatus={loggedInStatus} />} />
         <Route exact path="/home" render={props => <HomePage {...props} loggedInStatus={loggedInStatus} />} />
         <Route exact path="/pokemon" component={AllPokemonPage} />
         <Route exact path="/pokemon/:name" render={(props) => <PokemonInfoPage {...props} />} /> 

@@ -5,12 +5,12 @@ import NavBar from '../Components/NavBar'
 
 const HomePage = props => {
 
-
   return (
     <div>
       <NavBar />
       <Jumbo />
-      {props.loggedInStatus}
+      <h1>{props.loggedInStatus}</h1>
+      <h1></h1>
       {/* <PokemonCardsContainer /> */}
     </div>
   )

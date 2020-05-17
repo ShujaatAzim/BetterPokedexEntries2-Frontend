@@ -15,6 +15,7 @@ const LoginPage = props => {
   const [registrationErrors, setRegistrationErrors] = useState("")
 
   const handleSuccessfulAuth = data => {
+    props.handleLogin(data)
     props.history.push("/home")
   }
 
